@@ -29,7 +29,7 @@ describe "As a visitor" do
       fill_in 'Year', with: 1970
       click_button 'Create Book'
 
-      expect(current_path).to eq("/book/#{Book.last.id}")
+      expect(current_path).to eq("/books/#{Book.last.id}")
       expect(page).to have_content(Book.last.title)
     end
   end
