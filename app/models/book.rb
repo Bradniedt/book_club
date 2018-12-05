@@ -5,8 +5,8 @@ class Book < ApplicationRecord
   has_many :reviews
 
   def titleizer
-    self.title.titleize
-    self.author.titleize
+    self.title = self.title.titleize
+    self.author = self.author.titleize
   end
 
 end
