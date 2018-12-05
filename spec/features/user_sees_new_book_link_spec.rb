@@ -12,10 +12,10 @@ describe "As a visitor" do
     it "should take me to a page with a form to create a book" do
       visit '/books/new'
 
-      expect(page).to have_field(:title)
-      expect(page).to have_field(:pages)
-      expect(page).to have_field(:author)
-      expect(page).to have_field(:year)
+      expect(page).to have_field("Title")
+      expect(page).to have_field("Pages")
+      expect(page).to have_field("Author")
+      expect(page).to have_field("Year")
     end
   end
 end
