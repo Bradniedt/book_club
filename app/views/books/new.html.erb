@@ -1,0 +1,18 @@
+<form accept-charset="UTF-8" action="/books" method="post">
+    <input name="book[title]" type="text" placeholder="Title" />
+    <input name="book[age]" type="number" placeholder="Age" />
+    <input name="book[author]" type="text" placeholder="Author" />
+    <input name="book[year]" type="number" placeholder="Year" />
+    <input name="submit" type="submit" value="Create!" />
+</form>
+
+
+<!--
+<%= form_for :book do |f|  %>
+  Title: <%= f.text_field(:title, "Title") %><br/>
+  Pages: <%= f.number_field :pages %><br/>
+  Author: <%= f.text_field :author %><br/>
+  Year: <%= f.number_field :year %><br/>
+  <%= f.submit "Create" %>
+<% end %>
+-->
