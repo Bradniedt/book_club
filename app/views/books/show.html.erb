@@ -1,3 +1,8 @@
-<%= @books.title %>
-<%= @books.pages %>
-<%= @books.author %>
+<%= @book.title %>
+<%= @book.pages %>
+<%= @book.author %>
+ <% @book.reviews.each do |review|%>
+  <%= review.title %>
+  <%= review.description %>
+  <%= review.rating %>
+ <% end  %>
