@@ -15,7 +15,6 @@ describe "As a visitor" do
       expect(page).to have_field("Title")
       expect(page).to have_field("Pages")
       expect(page).to have_field("Author")
-      expect(page).to have_field("Year")
     end
   end
   describe "when I click Create Book" do
@@ -26,11 +25,23 @@ describe "As a visitor" do
       fill_in 'Title', with: "Book 1"
       fill_in 'Pages', with: 100
       fill_in 'Author', with: "Name 1"
-      fill_in 'Year', with: 1970
       click_button 'Create Book'
 
       expect(current_path).to eq("/books/#{Book.last.id}")
       expect(page).to have_content(Book.last.title)
+    end
+  end
+  describe "when I create a book with lowercased title and author" do
+    it "should titleize the title and author before saving" do
+      visit new_book_path
+
+      fill_in 'Title', with: "book one"
+      fill_in 'Pages', with: 100
+      fill_in 'Author', with: "name one"
+      click_button 'Create Book'
+
+      expect(page).to have_content("Book One")
+      expect(page).to have_content("Name One")
     end
   end
 end
