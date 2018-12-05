@@ -10,6 +10,7 @@ RSpec.describe Book, type: :model do
   end
 
   describe 'relationships' do
+    it { should have_many(:reviews)}
 
   end
 end
