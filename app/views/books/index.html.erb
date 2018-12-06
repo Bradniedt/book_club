@@ -1,4 +1,10 @@
 <a href="/books/new" class="new-book">Create a new book!</a><br/>
+<%= link_to "Rating: Lowest to Highest", books_path(sort: "asc_rating") %><br/>
+<%= link_to "Rating: Highest to Lowest", books_path(sort: "desc_rating") %><br/>
+<%= link_to "Number of Pages: Lowest to Highest", books_path(sort: "asc_pages") %><br/>
+<%= link_to "Number of Pages: Highest to Lowest", books_path(sort: "desc_pages") %><br/>
+<%= link_to "Number of Reviews: Lowest to Highest", books_path(sort: "asc_reviews") %><br/>
+<%= link_to "Number of Reviews: Highest to Lowest", books_path(sort: "desc_reviews") %><br/>
 
 <section class="book-flex-box">
   <% @books.each do |book| %>
