@@ -10,4 +10,8 @@ class Book < ApplicationRecord
     self.title = self.title.titleize
   end
 
+  def self.avg_rating_asc
+    
+  end
+
 end
