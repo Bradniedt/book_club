@@ -9,46 +9,23 @@ html, body{
     max-height: 100%;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas: ". . . . ." ". . . . ." ". . . . .";
-}
-
-nav {
-  grid-column: 1 / 6;
-  grid-row: 1 / 2;
-}
-
-body {
-  grid-column: 1 / 6;
-  grid-row: 2 / 4;
+.book-flex-box{
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-start;
+  width: 100%;
 }
 
 .book-box {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
   margin: 5px;
   text-align: center;
   padding: auto;
   width: 200px;
   height: 200px;
   border: 1px solid red;
-}
-
-.book-flex-box{
-  min-height: 400px;
-  display: flex;
-  display: -webkit-flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  align-content: flex-start;
-}
-
-.container:after {
-  display: block;
-  content: " invisible node ";
-  flex: 999 999 auto;
 }
