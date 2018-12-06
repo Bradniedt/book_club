@@ -1,8 +1,12 @@
-<a href="/books/new">Create a new book!</a>
+<a href="/books/new" class="new-book">Create a new book!</a><br/>
 
-<% @books.each do |book| %>
-  <p>Title: <%= book.title  %></p>
-  <p>Pages: <%= book.pages  %></p>
-  <p>Year: <%= book.year  %></p>
-  <p>Author(s): <%= book.authors.pluck(:name).join(", ")  %></p>
-<% end %>
+<section class="book-flex-box">
+  <% @books.each do |book| %>
+    <article class="book-box">
+      <p>Title: <%= book.title  %></p>
+      <p>Pages: <%= book.pages  %></p>
+      <p>Year: <%= book.year  %></p>
+      <p>Author(s): <%= book.authors.pluck(:name).join(", ")  %></p>
+    </article>
+  <% end %>
+</section>

@@ -1,0 +1,31 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    height: 100vh;
+    max-height: 100%;
+}
+
+.book-flex-box{
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-start;
+  width: 100%;
+}
+
+.book-box {
+  flex: 0 1 auto;
+  margin: 5px;
+  text-align: center;
+  padding: auto;
+  width: 200px;
+  height: 200px;
+  border: 1px solid red;
+}
