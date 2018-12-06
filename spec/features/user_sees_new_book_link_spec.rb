@@ -14,6 +14,7 @@ describe "As a visitor" do
 
       expect(page).to have_field("Title")
       expect(page).to have_field("Pages")
+      expect(page).to have_field("Year")
       expect(page).to have_field("Authors")
     end
   end

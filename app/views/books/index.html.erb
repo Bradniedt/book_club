@@ -1,7 +1,8 @@
 <a href="/books/new">Create a new book!</a>
 
 <% @books.each do |book| %>
-  <p><%= book.title  %></p>
-  <p><%= book.pages  %></p>
-  <%= book.authors.pluck(:name).join(", ")  %>
+  Title: <p><%= book.title  %></p>
+  Pages: <p><%= book.pages  %></p>
+  Year: <p><%= book.year  %></p>
+  Author(s): <%= book.authors.pluck(:name).join(", ")  %>
 <% end %>

@@ -16,7 +16,7 @@ class BooksController < ApplicationController
     book = Book.create(book_params)
     author_array = params[:book]["authors"].split(",")
     author_array.each do |author|
-      book.authors << Author.find_or_create_by(:name => author)
+      book.authors << Author.find_or_create_by(:name => author.strip)
     end
     redirect_to book_path(book)
   end
@@ -24,6 +24,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :pages)
+    params.require(:book).permit(:title, :pages, :year)
   end
 end

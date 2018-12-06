@@ -8,6 +8,7 @@ describe "As a visitor" do
 
         fill_in 'Title', with: "Book 1"
         fill_in 'Pages', with: 100
+        fill_in 'Year', with: 1900
         fill_in 'Author', with: "Name 1"
         click_button 'Create Book'
 
@@ -21,6 +22,7 @@ describe "As a visitor" do
 
         fill_in 'Title', with: "book one"
         fill_in 'Pages', with: 100
+        fill_in 'Year', with: 1900
         fill_in 'Author', with: "name one"
         click_button 'Create Book'
 
@@ -34,13 +36,13 @@ describe "As a visitor" do
 
         fill_in 'Title', with: "book one"
         fill_in 'Pages', with: 100
+        fill_in 'Year', with: 1900
         fill_in 'Author', with: "name one, name two"
         click_button 'Create Book'
 
         expect(page).to have_content("Book One")
-        expect(page).to have_content("Name One")
-        expect(page).to have_content("Name Two")
 
+        expect(Author.pluck(:name).join(" ")).to eq("Name One Name Two")
         expect(Author.last.name).to eq("Name Two")
       end
     end

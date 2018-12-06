@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  validates_presence_of :title, :pages
+  validates_presence_of :title, :pages, :year
   before_save :titleizer
 
   has_many :reviews
