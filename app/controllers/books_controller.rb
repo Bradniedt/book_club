@@ -15,8 +15,8 @@ class BooksController < ApplicationController
   def create
     book = Book.create(book_params)
     author_array = params[:book]["authors"].split(",")
-    authors_array.each do |author|
-      book.authors << Author.find_or_create_by(:name => aut)
+    author_array.each do |author|
+      book.authors << Author.find_or_create_by(:name => author)
     end
     redirect_to book_path(book)
   end
