@@ -15,8 +15,14 @@ describe 'as a visitor' do
 
       visit books_path
 
-      expect(page).to have_link("avg_rating_ascending")
-      click_on "avg_rating_ascending"
+      expect(page).to have_link("Rating: Lowest to Highest")
+      expect(page).to have_link("Rating: Highest to Lowest")
+      expect(page).to have_link("Number of Pages: Lowest to Highest")
+      expect(page).to have_link("Number of Pages: Highest to Lowest")
+      expect(page).to have_link("Number of Reviews: Lowest to Highest")
+      expect(page).to have_link("Number of Reviews: Highest to Lowest")
+
+
     end
   end
 end
