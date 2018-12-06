@@ -3,7 +3,7 @@ require "rails_helper"
 describe "as a user" do
   describe "when I visit /books" do
     describe "when I click on link for average rating ascending" do
-      xit "should show books sorted by rating" do
+      it "should show books sorted by rating" do
         book_1 = Book.create(title: "book_1", pages: 100, year: 2000)
         book_2 = Book.create(title: "book_2", pages: 200, year: 2001)
         book_3 = Book.create(title: "book_3", pages: 240, year: 2004)
@@ -16,14 +16,12 @@ describe "as a user" do
 
         visit books_path
 
-        expected_1 = page.body =~ /Book 3/
-        expected_2 = page.body =~ /Book 2/
-        expected_3 = page.body =~ /Book 1/
-
         click_on("Rating: Lowest to Highest")
-        save_and_open_page
 
-        expect(page).to have_content([expected_1, expected_2, expected_3])
+        expect(all('.book')[0]).to have_content(book_3.title)
+        expect(all('.book')[1]).to have_content(book_2.title)
+        expect(all('.book')[2]).to have_content(book_1.title)
+        
       end
     end
   end
