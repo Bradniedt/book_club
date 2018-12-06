@@ -14,11 +14,17 @@ class Book < ApplicationRecord
     self.select("books.*, avg(reviews.rating) AS avg_rating").joins(:reviews).group("books.id").reverse_order
   end
 
+  def self.avg_rating_desc
+    book = self.select("books.*, avg(reviews.rating) AS avg_rating").joins(:reviews).group("books.id")
+  end
+
   def self.sort(params)
     if params[:sort] == "asc_rating"
       avg_rating_asc
+    elsif params[:sort] == "desc_rating"
+      avg_rating_desc
     else
       all
-    end 
+    end
   end
 end
