@@ -11,7 +11,7 @@ class Book < ApplicationRecord
   end
 
   def self.avg_rating_asc
-    
+    self.select("books.*, avg(reviews.rating) AS avg_rating").joins(:reviews).group("books.id").reverse_order
   end
 
 end
