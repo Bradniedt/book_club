@@ -1,0 +1,9 @@
+<%= form_for [@book, @review] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br/>
+  <%= f.label :description %>
+  <%= f.number_field :description %><br/>
+  <%= f.label :rating %>
+  <%= f.number_field :rating %><br/>
+  <%= f.submit %><br/>
+<% end %>

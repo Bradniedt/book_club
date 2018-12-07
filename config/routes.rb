@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   get '/', to: 'home#index'
 
   resources :books do
-    resources :reviews, only: [:index, :show, :new, :destroy]
+    resources :reviews
   end
 
   resources :authors, only: [:show, :destroy]
-  
+
 end
