@@ -4,11 +4,12 @@ Year: <%= @book.year %><br/>
 Author(s): <% @authors.each do |author| %>
   <%= author.name %>
 <% end %>
-
+<br/>
  <% @book.reviews.each do |review|%>
   <%= review.title %>
   <%= review.description %>
   <%= review.rating %>
+  <br/>
  <% end  %>
  <div class="">
    <%= link_to "Add Review", new_book_review_path(@book) %>

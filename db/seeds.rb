@@ -6,14 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Book.destroy_all
-Review.destroy_all
 
 tolkein = Author.create(name: "John Ronald Reuel Tolkien")
-book_1 = Book.create(title: "The Hobbit", pages: 310, year: 1937, author: tolkein )
-book_2 = Book.create(title: "The Fellowship of the Ring", pages: 423, year: 1954, author: tolkein )
-book_3 = Book.create(title: "The Two Towers", pages: 352, year: 1937, author: tolkein )
-book_4 = Book.create(title: "The Return of the King", pages: 416, year: 1954, author: tolkein )
+book_1 = tolkein.books.create(title: "The Hobbit", pages: 310, year: 1937 )
+book_2 = tolkein.books.create(title: "The Fellowship of the Ring", pages: 423, year: 1954 )
+book_3 = tolkein.books.create(title: "The Two Towers", pages: 352, year: 1937 )
+book_4 = tolkein.books.create(title: "The Return of the King", pages: 416, year: 1954 )
 
 review_1 = book_1.reviews.create!(title: "Great Story" , description:"I loved the elves!", rating: 5)
 review_2 = book_1.reviews.create!(title: "Sub-par" , description:"I thought that bilbo should've stayed home.", rating: 1)
