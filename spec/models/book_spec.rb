@@ -27,7 +27,7 @@ RSpec.describe Book, type: :model do
       review_5 = book_3.reviews.create!(title: "good book" , description:"amazing", rating: 4)
       review_6 = book_3.reviews.create!(title: "not great" , description:"blah", rating: 1)
 
-      expect(Book.avg_rating_asc).to eq([book_2, book_1, book_3])
+      expect(Book.avg_rating("asc")).to eq([book_3, book_1, book_2])
    end
 
     it "avg_rating_desc" do
@@ -41,7 +41,7 @@ RSpec.describe Book, type: :model do
       review_5 = book_3.reviews.create!(title: "good book" , description:"amazing", rating: 4)
       review_6 = book_3.reviews.create!(title: "not great" , description:"blah", rating: 1)
 
-      expect(Book.avg_rating_desc).to eq([book_2, book_1, book_3])
+      expect(Book.avg_rating("desc")).to eq([book_2, book_1, book_3])
    end
   end
 end

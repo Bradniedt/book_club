@@ -10,19 +10,17 @@ class Book < ApplicationRecord
     self.title = self.title.titleize
   end
 
-  def self.avg_rating_asc
-    self.select("books.*, avg(reviews.rating) AS avg_rating").joins(:reviews).group("books.id").reverse_order
-  end
-
-  def self.avg_rating_desc
-    book = self.select("books.*, avg(reviews.rating) AS avg_rating").joins(:reviews).group("books.id")
+  def self.avg_rating(order)
+    books = self.select("books.*, avg(reviews.rating) AS avg_rating")
+                .joins(:reviews).group("books.id")
+                .order("avg_rating #{order}")
   end
 
   def self.sort(params)
     if params[:sort] == "asc_rating"
-      avg_rating_asc
+      avg_rating("asc")
     elsif params[:sort] == "desc_rating"
-      avg_rating_desc
+      avg_rating("desc")
     else
       all
     end
