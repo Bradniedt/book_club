@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Book.destroy_all
+Review.destroy_all
+Author.destroy_all
+
 
 tolkein = Author.create(name: "John Ronald Reuel Tolkien")
 book_1 = tolkein.books.create(title: "The Hobbit", pages: 310, year: 1937 )
