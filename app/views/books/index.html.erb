@@ -12,7 +12,11 @@
       <p>Title: <%= book.title  %></p>
       <p>Pages: <%= book.pages  %></p>
       <p>Year: <%= book.year  %></p>
-      <p>Author(s): <%= book.authors.pluck(:name).join(", ")  %></p>
+      <div class="book_<%= book.id %>">
+        <% book.authors.each do |author| %>
+          Author(s): <%= link_to "#{author.name}", author_path(author) %> 
+        <% end %>
+      </div>
     </article>
   <% end %>
 </section>
