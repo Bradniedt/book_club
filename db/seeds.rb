@@ -9,15 +9,20 @@
 Book.destroy_all
 Review.destroy_all
 
-book_1 = Book.create!(title: "book_1", pages: 100, year: 2000)
-book_2 = Book.create!(title: "book_2", pages: 200, year: 2001)
-book_3 = Book.create!(title: "book_3", pages: 240, year: 2004)
-review_1 = book_1.reviews.create!(title: "good book" , description:"amazing", rating: 5)
-review_2 = book_1.reviews.create!(title: "bad book" , description:"lame", rating: 1)
-review_2 = book_1.reviews.create!(title: "really bad book" , description:"lame AF", rating: 1)
-review_3 = book_2.reviews.create!(title: "good book" , description:"amazing", rating: 5)
-review_4 = book_2.reviews.create!(title: "not great" , description:"blah", rating: 3)
-review_4 = book_2.reviews.create!(title: "not good" , description:"meh", rating: 3)
-review_4 = book_2.reviews.create!(title: "not the best" , description:"okay", rating: 3)
-review_5 = book_3.reviews.create!(title: "good book" , description:"amazing", rating: 4)
-review_6 = book_3.reviews.create!(title: "not great" , description:"blah", rating: 1)
+tolkein = Author.create(name: "John Ronald Reuel Tolkien")
+book_1 = Book.create(title: "The Hobbit", pages: 310, year: 1937, author: tolkein )
+book_2 = Book.create(title: "The Fellowship of the Ring", pages: 423, year: 1954, author: tolkein )
+book_3 = Book.create(title: "The Two Towers", pages: 352, year: 1937, author: tolkein )
+book_4 = Book.create(title: "The Return of the King", pages: 416, year: 1954, author: tolkein )
+
+review_1 = book_1.reviews.create!(title: "Great Story" , description:"I loved the elves!", rating: 5)
+review_2 = book_1.reviews.create!(title: "Sub-par" , description:"I thought that bilbo should've stayed home.", rating: 1)
+review_3 = book_1.reviews.create!(title: "Too Good" , description:"Nothing IRL can be as good as this story, nihlism.", rating: 1)
+
+review_4 = book_2.reviews.create!(title: "Top-notch" , description:"It was a great struggle - can't wait to find out what happens next!", rating: 5)
+review_5 = book_2.reviews.create!(title: "Underwhelmed" , description:"Where have all of the good times gone? Middle earth is lost.", rating: 3)
+review_6 = book_2.reviews.create!(title: "BS" , description:"Aragorn's dad should've destroyed the ring when he had the chance. This is BS.", rating: 3)
+review_7 = book_2.reviews.create!(title: "Gollum Love" , description:"I don't like that Sam keeps hating on Gollum every chance he gets. WTF", rating: 3)
+
+review_8 = book_3.reviews.create!(title: "Good ending" , description:"So happy that the good guys win. FU great eye.", rating: 4)
+review_9 = book_3.reviews.create!(title: "Am I missing something?" , description:"This could've ended before it all started", rating: 1)
