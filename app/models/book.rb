@@ -12,12 +12,17 @@ class Book < ApplicationRecord
 
   def self.avg_rating(order)
     books = self.select("books.*, avg(reviews.rating) AS avg_rating")
-                .joins(:reviews).group("books.id")
+                .joins(:reviews)
+                .group("books.id")
                 .order("avg_rating #{order}")
   end
 
   def self.number_of_pages(order)
     self.order("pages #{order}")
+  end
+
+  def self.number_of_reviews(order)
+    self.select('books.*, reviews.count AS count').joins(:reviews).group(:id).order("count #{order}")
   end
 
   def self.sort(params)
