@@ -9,12 +9,12 @@
 <section class="book-flex-box">
   <% @books.each do |book| %>
     <article class="book">
-      <p>Title: <%= book.title  %></p>
+      <p>Title: <%= link_to "#{book.title}", book_path(book) %></p>
       <p>Pages: <%= book.pages  %></p>
       <p>Year: <%= book.year  %></p>
       <div class="book_<%= book.id %>">
         <% book.authors.each do |author| %>
-          Author(s): <%= link_to "#{author.name}", author_path(author) %> 
+          Author(s): <%= link_to "#{author.name}", author_path(author) %>
         <% end %>
       </div>
     </article>
