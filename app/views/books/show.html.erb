@@ -1,10 +1,9 @@
-Title: <%= @book.title %><br/>
-Pages: <%= @book.pages %><br/>
-Year: <%= @book.year %><br/>
-Author(s): <% @authors.each do |author| %>
-  <%= author.name %>
-<% end %>
-
+<div class="">
+  <%= link_to "Add Review", new_book_review_path(@book) %>
+</div>
+<%= @book.title %>
+<%= @book.pages %>
+<%= @book.author %>
  <% @book.reviews.each do |review|%>
   <%= review.title %>
   <%= review.description %>
