@@ -30,6 +30,14 @@ class Book < ApplicationRecord
       avg_rating("asc")
     elsif params[:sort] == "desc_rating"
       avg_rating("desc")
+    elsif params[:sort] == "asc_pages"
+      number_of_pages("asc")
+    elsif params[:sort] == "desc_pages"
+      number_of_pages("desc")
+    elsif params[:sort] == "asc_reviews"
+      number_of_reviews("asc")
+    elsif params[:sort] == "desc_reviews"
+      number_of_reviews("desc")
     else
       all
     end
