@@ -16,6 +16,10 @@ class Book < ApplicationRecord
                 .order("avg_rating #{order}")
   end
 
+  def self.number_of_pages(order)
+    self.order("pages #{order}")
+  end
+
   def self.sort(params)
     if params[:sort] == "asc_rating"
       avg_rating("asc")
