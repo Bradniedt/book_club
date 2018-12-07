@@ -4,16 +4,18 @@
     <title>BookClub</title>
     <%= csrf_meta_tags %>
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" title="css" type="text/css">
-
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="grid-container">
-    <nav class="navbar ">
-      <a href="/">Home</a>
-      <a href="/books">Books</a>
+    <nav class="navbar">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/books" class="nav-link">Books</a>
     </nav>
-    <%= yield %>
+    <div class="view">
+      <%= yield %>
+    </div>
   </body>
 </html>
