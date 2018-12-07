@@ -19,8 +19,9 @@ review_3 = book_1.reviews.create!(title: "Too Good" , description:"Nothing IRL c
 
 review_4 = book_2.reviews.create!(title: "Top-notch" , description:"It was a great struggle - can't wait to find out what happens next!", rating: 5)
 review_5 = book_2.reviews.create!(title: "Underwhelmed" , description:"Where have all of the good times gone? Middle earth is lost.", rating: 3)
-review_6 = book_2.reviews.create!(title: "BS" , description:"Aragorn's dad should've destroyed the ring when he had the chance. This is BS.", rating: 3)
-review_7 = book_2.reviews.create!(title: "Gollum Love" , description:"I don't like that Sam keeps hating on Gollum every chance he gets. WTF", rating: 3)
 
-review_8 = book_3.reviews.create!(title: "Good ending" , description:"So happy that the good guys win. FU great eye.", rating: 4)
-review_9 = book_3.reviews.create!(title: "Am I missing something?" , description:"This could've ended before it all started", rating: 1)
+review_6 = book_3.reviews.create!(title: "BS" , description:"Aragorn's dad should've destroyed the ring when he had the chance. This is BS.", rating: 3)
+review_7 = book_3.reviews.create!(title: "Gollum Love" , description:"I don't like that Sam keeps hating on Gollum every chance he gets. WTF", rating: 3)
+
+review_8 = book_4.reviews.create!(title: "Good ending" , description:"So happy that the good guys win. FU great eye.", rating: 4)
+review_9 = book_4.reviews.create!(title: "Am I missing something?" , description:"This could've ended before it all started", rating: 1)

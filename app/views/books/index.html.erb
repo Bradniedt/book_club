@@ -6,13 +6,13 @@
 <%= link_to "Number of Reviews: Lowest to Highest", books_path(sort: "asc_reviews") %><br/>
 <%= link_to "Number of Reviews: Highest to Lowest", books_path(sort: "desc_reviews") %><br/>
 
-<section class="book-flex-box">
+<section class="flex-box">
   <% @books.each do |book| %>
-    <article class="book">
+    <article class="book-box">
       <p>Title: <%= link_to "#{book.title}", book_path(book) %></p>
       <p>Pages: <%= book.pages  %></p>
       <p>Year: <%= book.year  %></p>
-      <div class="book_<%= book.id %>">
+      <div id="book_<%= book.id %>">
         <% book.authors.each do |author| %>
           Author(s): <%= link_to "#{author.name}", author_path(author) %>
         <% end %>

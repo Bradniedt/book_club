@@ -1,6 +1,12 @@
-<%= @author.name %> <br/>
+<h3 class="author-header"><%= @author.name %></h3><br/>
+<section class="flex-box">
+
 <% @author.books.each do |book| %>
-  <%= book.title %>
-  <%= book.pages %>
-  <%= book.year %>
+  <article class="author-book">
+    <%= book.title %>
+    <%= book.pages %>
+    <%= book.year %>
+  </article>
 <% end  %>
+
+</section>
