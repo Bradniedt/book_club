@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
   def index
     @books = Book.sort(params)
+    @highest_books = Book.highest_rated_books
+    @lowest_books = Book.lowest_rated_books
   end
 
   def new
