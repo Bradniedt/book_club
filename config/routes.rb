@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   resources :books do
     resources :reviews
+
   end
 
   resources :authors, only: [:show, :destroy]
-
+  resources :users, only: [:show, :index, :destroy]
 end

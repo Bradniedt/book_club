@@ -6,6 +6,7 @@ Author(s): <% @authors.each do |author| %>
 <% end %>
 <br/>
  <% @book.reviews.each do |review|%>
+  <%= link_to "#{review.user.name}", user_path(review.user.id) %>
   <%= review.title %>
   <%= review.description %>
   <%= review.rating %>
