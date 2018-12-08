@@ -14,7 +14,7 @@ describe 'as a visitor' do
 
       click_button 'Create Review'
 
-      user = User.last.name
+      user = User.last
 
       expect(page).to have_content("Would suggest")
       expect(page).to have_content("Good book")
