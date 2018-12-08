@@ -65,10 +65,10 @@ describe "as a user" do
           user_2 = User.create(name: "Person Two")
           review_1 = user_1.reviews.create(title: "good book" , description:"amazing", rating: 5)
           review_2 = user_2.reviews.create(title: "bad book" , description:"lame", rating: 1)
-          book_1.reviews << [review_1, review_2]
+          book_1.reviews << [review_1]
           review_3 = user_1.reviews.create(title: "good book" , description:"amazing", rating: 5)
           review_4 = user_2.reviews.create(title: "not great" , description:"blah", rating: 3)
-          book_2.reviews << [review_3, review_4]
+          book_2.reviews << [review_2, review_3, review_4]
           review_5 = user_1.reviews.create(title: "good book" , description:"amazing", rating: 4)
           review_6 = user_2.reviews.create(title: "not great" , description:"blah", rating: 1)
           book_3.reviews << [review_5, review_6]
