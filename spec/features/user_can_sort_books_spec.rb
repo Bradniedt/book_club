@@ -120,13 +120,17 @@ describe "as a user" do
 
           visit books_path
 
-          expect(all('.book_rating')[0]).to have_content(book_1.title)
-          expect(all('.book_rating')[1]).to have_content(book_3.title)
-          expect(all('.book_rating')[2]).to have_content(book_2.title)
+          within('.highest_rated_books') do
+            expect(page).to have_content(book_1.title)
+            expect(page).to have_content(book_3.title)
+            expect(page).to have_content(book_2.title)
+          end
 
-          # expect(all('.book_low_rating')[0]).to have_content(book_6.title)
-          # expect(all('.book_low_rating')[1]).to have_content(book_4.title)
-          # expect(all('.book_low_rating')[2]).to have_content(book_5.title)
+          within('.lowest_rated_books') do 
+            expect(page).to have_content(book_6.title)
+            expect(page).to have_content(book_4.title)
+            expect(page).to have_content(book_5.title)
+          end
 
         end
       end

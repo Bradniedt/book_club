@@ -21,6 +21,10 @@ class Book < ApplicationRecord
     books = self.select("books.*, avg(reviews.rating) AS avg_rating").joins(:reviews).group("books.id").order("avg_rating desc").limit(3)
   end
 
+  def self.lowest_rated_books
+    books = self.select("books.*, avg(reviews.rating) AS avg_rating").joins(:reviews).group("books.id").order("avg_rating ").limit(3)
+  end
+
   def self.number_of_pages(order)
     self.order("pages #{order}")
   end
