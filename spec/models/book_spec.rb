@@ -15,6 +15,20 @@ RSpec.describe Book, type: :model do
 
   end
 
+  describe 'instance method' do
+    it "avg_rating" do
+      book_1 = Book.create(title: "book_1", pages: 100, year: 2000)
+      user_1 = User.create(name: "Person One")
+      user_2 = User.create(name: "Person Two")
+      review_1 = user_1.reviews.create(title: "good book" , description:"amazing", rating: 5)
+      review_2 = user_2.reviews.create(title: "bad book" , description:"lame", rating: 1)
+      book_1.reviews << [review_1, review_2]
+
+      expect(book_1.avg_rating).to eq(3)
+
+    end
+  end
+
   describe 'class method' do
     it "avg_rating()" do
       book_1 = Book.create!(title: "book_1", pages: 100, year: 2000)
@@ -35,7 +49,7 @@ RSpec.describe Book, type: :model do
       expect(Book.avg_rating("asc")).to eq([book_3, book_1, book_2])
       expect(Book.avg_rating("desc")).to eq([book_2, book_1, book_3])
    end
-   it 'highest_rated_books' do
+   xit 'highest_rated_books' do
      book_1 = Book.create(title: "book_1", pages: 100, year: 2000)
      book_2 = Book.create(title: "book_2", pages: 200, year: 2001)
      book_3 = Book.create(title: "book_3", pages: 240, year: 2004)
@@ -68,7 +82,7 @@ RSpec.describe Book, type: :model do
 
 
    end
-   it 'lowest_rated_books' do
+   xit 'lowest_rated_books' do
      book_1 = Book.create!(title: "book_1", pages: 100, year: 2000)
      book_2 = Book.create!(title: "book_2", pages: 200, year: 2001)
      book_3 = Book.create!(title: "book_3", pages: 240, year: 2004)

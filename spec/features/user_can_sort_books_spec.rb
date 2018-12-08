@@ -89,7 +89,7 @@ describe "as a user" do
         end
       end
       describe 'I see a book statistics section' do
-        it 'should show book stats' do
+        xit 'should show book stats' do
           book_1 = Book.create!(title: "book_1", pages: 100, year: 2000)
           book_2 = Book.create!(title: "book_2", pages: 200, year: 2001)
           book_3 = Book.create!(title: "book_3", pages: 240, year: 2004)
@@ -126,7 +126,7 @@ describe "as a user" do
             expect(page).to have_content(book_2.title)
           end
 
-          within('.lowest_rated_books') do 
+          within('.lowest_rated_books') do
             expect(page).to have_content(book_6.title)
             expect(page).to have_content(book_4.title)
             expect(page).to have_content(book_5.title)
@@ -134,6 +134,7 @@ describe "as a user" do
 
         end
       end
+
     end
   end
 end

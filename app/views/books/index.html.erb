@@ -26,6 +26,7 @@
       <p>Pages: <%= book.pages  %></p>
       <p>Year: <%= book.year  %></p>
       <div id="book_<%= book.id %>">
+        <%= book.avg_rating %>
         <% book.authors.each do |author| %>
           Author(s): <%= link_to "#{author.name}", author_path(author) %>
         <% end %>
