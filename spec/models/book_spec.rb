@@ -65,6 +65,8 @@ RSpec.describe Book, type: :model do
      book_6.reviews << [review_10]
 
      expect(Book.highest_rated_books).to eq([book_1, book_3, book_2])
+     expect(Book.lowest_rated_books).to eq([book_4, book_6, book_5])
+     
 
    end
 
