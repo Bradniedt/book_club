@@ -5,7 +5,10 @@ class ReviewsController < ApplicationController
   end
   def create
     book = Book.find(params[:book_id])
-    review = book.reviews.create(review_params)
+    user_name = params[:review]["username"].titleize
+    user = User.find_or_create_by(:name => user_name)
+    review = user.reviews.create(review_params)
+    book.reviews << review
     redirect_to book_path(book)
   end
 

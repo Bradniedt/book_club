@@ -9,7 +9,7 @@ describe 'as a visitor' do
 
       visit books_path
 
-      within(".book_#{book_1.id}") do
+      within("#book_#{book_1.id}") do
         click_on("#{author_1.name}")
       end
 
