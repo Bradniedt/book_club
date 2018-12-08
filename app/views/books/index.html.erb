@@ -7,8 +7,7 @@
 <%= link_to "Number of Reviews: Highest to Lowest", books_path(sort: "desc_reviews") %><br/>
 <section class="highest_rated_books">
   <% @highest_books.each do |book|%>
-   <%= book.title %>
-   <%= book.avg_rating %>
+   <p class="book_rating"><%= book.title %><%= book.avg_rating %></p>
   <% end %>
 </section>
 
