@@ -5,25 +5,28 @@
 <%= link_to "Number of Pages: Highest to Lowest", books_path(sort: "desc_pages") %><br/>
 <%= link_to "Number of Reviews: Lowest to Highest", books_path(sort: "asc_reviews") %><br/>
 <%= link_to "Number of Reviews: Highest to Lowest", books_path(sort: "desc_reviews") %><br/>
-<section class="highest_rated_books">
-  <h4>Highest Rated Books</h4>
-  <% @highest_books.each do |book|%>
-   <p class="book_rating"><%= book.title %> <%= book.avg_rating %></p>
-  <% end %>
-</section>
-<section class="lowest_rated_books">
-  <h4>Lowest Rated Books</h4>
-  <% @lowest_books.each do |book|%>
-   <p class="book_rating"><%= book.title %></p>
-   <p><%= book.avg_rating %></p>
-  <% end %>
-</section>
 
-<section class="top_users">
-  <h4>Top Users</h4>
-  <% @top_users.each do |user|%>
-   <p><%= user.name %> with <%= user.total_reviews %> reviews.</p>
-  <% end %>
+<section class="stats-box">
+  <article class="highest_rated_books">
+    <h4>Highest Rated Books</h4>
+    <% @highest_books.each do |book|%>
+     <p class="book_rating"><%= book.title %>: <%= book.avg_rating.round(2) %></p>
+    <% end %>
+  </article>
+
+  <article class="lowest_rated_books">
+    <h4>Lowest Rated Books</h4>
+    <% @lowest_books.each do |book|%>
+     <p class="book_rating"><%= book.title %>: <%= book.avg_rating.round(2) %></p>
+    <% end %>
+  </article>
+
+  <article class="top_users">
+    <h4>Top Users</h4>
+    <% @top_users.each do |user|%>
+     <p><%= user.name %> with <%= user.total_reviews %> reviews.</p>
+    <% end %>
+  </article>
 </section>
 
 <section class="flex-box">
@@ -33,8 +36,8 @@
       <p>Pages: <%= book.pages  %></p>
       <p>Year: <%= book.year  %></p>
       <div id="book_<%= book.id %>">
-        <%= book.avg_rating %>
-        Total Reviews : <%= book.total_reviews %>
+        <p>Average Rating: <%= book.avg_rating %></p>
+        <p>Total Reviews : <%= book.total_reviews %></p>
         <% book.authors.each do |author| %>
           Author(s): <%= link_to "#{author.name}", author_path(author) %>
         <% end %>
