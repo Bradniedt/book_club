@@ -5,7 +5,7 @@
     <% @reviews.each do |review| %>
     <article class="review-box">
       <p>Title: <%= review.title %></p>
-      <p>Book: <%= review.book.title %></p>
+      <p>Book: <%= link_to "#{review.book.title}", book_path(review.book) %></p>
       <p>Rating: <%= review.rating %></p>
       <p><%= review.description %></p>
       </article>

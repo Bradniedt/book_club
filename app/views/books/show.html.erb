@@ -1,17 +1,23 @@
-Title: <%= @book.title %><br/>
-Pages: <%= @book.pages %><br/>
-Year: <%= @book.year %><br/>
-Author(s): <% @authors.each do |author| %>
-  <%= author.name %>
-<% end %>
+<section class="book-show-info">
+  <p>Title: <%= @book.title %></p>
+  <p>Pages: <%= @book.pages %></p>
+  <p>Year: <%= @book.year %></p>
+  <p>Author(s): <% @authors.each do |author| %>
+    <%= author.name %>
+  <% end %></p>
+</section>
 <br/>
- <% @book.reviews.each do |review|%>
-  <%= link_to "#{review.user.name}", user_path(review.user.id) %>
-  <%= review.title %>
-  <%= review.description %>
-  <%= review.rating %>
-  <br/>
- <% end  %>
- <div class="">
-   <%= link_to "Add Review", new_book_review_path(@book) %>
- </div>
+<h3 class="book-show-header">Reviews:</h3>
+<div class="add-review">
+  <%= link_to "Add Review", new_book_review_path(@book) %>
+</div>
+<section class="book-reviews-box">
+    <% @book.reviews.each do |review|%>
+      <article class="review-box">
+        <%= link_to "#{review.user.name}", user_path(review.user.id) %>
+        <%= review.title %>
+        <%= review.description %>
+        <%= review.rating %>
+      </article>
+    <% end  %>
+</section>
