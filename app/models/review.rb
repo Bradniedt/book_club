@@ -3,4 +3,8 @@ class Review < ApplicationRecord
 
   belongs_to :user
   belongs_to :book
+
+  def self.sorting(direction)
+    order("created_at #{direction}")
+  end
 end

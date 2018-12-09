@@ -2,6 +2,8 @@
 
 <h4 class="user-review-header">My reviews:</h4>
 <section class="user-reviews-box">
+  <%= link_to "Newest First", user_path(sort: "desc") %>
+  <%= link_to "Oldest First", user_path(sort: "asc") %>
     <% @reviews.each do |review| %>
     <article class="review-box">
       <p>Title: <%= review.title %></p>
