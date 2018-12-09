@@ -60,7 +60,7 @@ a {
   grid-row: 2 / 6;
 }
 
- .flex-box, .stats-box{
+ .flex-box, .stats-box, .user-reviews-box {
    min-height: 400px;
    display: flex;
    flex-direction: row;
@@ -69,7 +69,10 @@ a {
    align-items: center;
    align-content: flex-start;
    width: 100%;
+ }
 
+ .user-reviews-box {
+   justify-content: flex-start;
  }
 
  .stats-box{
@@ -120,6 +123,20 @@ a {
    text-align: center;
  }
 
+ .review-box {
+   flex: 0 1 auto;
+   margin: 10px;
+   margin-top: 15px;
+   text-align: left;
+   padding: 10px;
+   width: 380px;
+   min-height: 150px;
+   height: auto;
+   border: 1px solid grey;
+   border-radius: 10px;
+   background: rgba(249, 249, 249, 0.2);
+ }
+
  .form-lines {
    margin: 5px;
  }
@@ -130,4 +147,8 @@ a {
 
  .sort-link {
    display: inline;
+ }
+
+ .user-review-header {
+   text-align: center;
  }

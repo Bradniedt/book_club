@@ -1,6 +1,13 @@
-<%= @user.name %>
-<% @reviews.each do |review| %>
-  <%= review.title %>
-  <%= review.description %>
-  <%= review.rating %>
-<% end %>
+<h1 class="user-review-header"><%= @user.name %></h1>
+
+<h4 class="user-review-header">My reviews:</h4>
+<section class="user-reviews-box">
+    <% @reviews.each do |review| %>
+    <article class="review-box">
+      <p>Title: <%= review.title %></p>
+      <p>Book: <%= review.book.title %></p>
+      <p>Rating: <%= review.rating %></p>
+      <p><%= review.description %></p>
+      </article>
+    <% end %>
+</section>
