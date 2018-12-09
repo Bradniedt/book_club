@@ -3,6 +3,7 @@ class BooksController < ApplicationController
     @books = Book.sort(params)
     @highest_books = Book.highest_rated_books
     @lowest_books = Book.lowest_rated_books
+    @top_users = User.top_users
   end
 
   def new
