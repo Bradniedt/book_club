@@ -21,6 +21,15 @@
   <% end %>
 </section>
 
+<section class="bottom-reviews">
+  <h4>Worst Reviews</h4>
+  <% @bottom_reviews.each do |review| %>
+    <p><%= review.title %></p>
+    <p><%= review.rating %></p>
+    <p><%= review.user.name %></p><br/>
+  <% end %>
+</section>
+
 <section class="book-reviews-box">
     <% @book.reviews.each do |review|%>
       <article class="review-box">
