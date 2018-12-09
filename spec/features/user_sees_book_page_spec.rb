@@ -47,13 +47,15 @@ describe "As a visitor" do
       review_3 = user_3.reviews.create(title: "bad book" , description:"lame", rating: 4, book: book_1)
       review_4 = user_4.reviews.create(title: "bad book" , description:"lame", rating: 4, book: book_1)
 
+      visit book_path(book_1)
+
       within('.top-reviews') do
         expect(page).to have_content(review_1.title)
         expect(page).to have_content(review_1.rating)
         expect(page).to have_content(review_1.user.name)
-        expect(page).to have_content(review_2.title)
-        expect(page).to have_content(review_2.rating)
-        expect(page).to have_content(review_2.user.name)
+        expect(page).to have_content(review_3.title)
+        expect(page).to have_content(review_3.rating)
+        expect(page).to have_content(review_3.user.name)
         expect(page).to have_content(review_4.title)
         expect(page).to have_content(review_4.rating)
         expect(page).to have_content(review_4.user.name)
