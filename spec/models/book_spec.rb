@@ -86,9 +86,9 @@ RSpec.describe Book, type: :model do
      review_10 = user_2.reviews.create(title: "not great" , description:"blah", rating: 3)
      book_5.reviews << [review_10]
      review_11 = user_2.reviews.create(title: "not great" , description:"blah", rating: 1)
-     book_6.reviews << [review_10]
+     book_6.reviews << [review_11]
 
-     expect(Book.highest_rated_books).to eq([book_1, book_3, book_2])
+     expect(Book.highest_rated_books).to eq([book_2, book_1, book_3])
 
 
     end
@@ -119,9 +119,9 @@ RSpec.describe Book, type: :model do
      review_10 = user_2.reviews.create(title: "not great" , description:"blah", rating: 3)
      book_5.reviews << [review_10]
      review_11 = user_2.reviews.create(title: "not great" , description:"blah", rating: 1)
-     book_6.reviews << [review_10]
+     book_6.reviews << [review_11]
 
-     expect(Book.lowest_rated_books).to eq([book_4, book_6, book_5])
+     expect(Book.lowest_rated_books).to eq([book_6, book_4, book_5])
     end
 
     it "number_of_pages()" do

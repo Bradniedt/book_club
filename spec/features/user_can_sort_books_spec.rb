@@ -116,7 +116,7 @@ describe "as a user" do
           review_10 = user_2.reviews.create(title: "not great" , description:"blah", rating: 3)
           book_5.reviews << [review_10]
           review_11 = user_2.reviews.create(title: "not great" , description:"blah", rating: 1)
-          book_6.reviews << [review_10]
+          book_6.reviews << [review_11]
 
           visit books_path
 
