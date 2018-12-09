@@ -63,11 +63,12 @@ describe "as a user" do
           book_3 = Book.create!(title: "book_3", pages: 240, year: 2004)
           user_1 = User.create(name: "Person One")
           user_2 = User.create(name: "Person Two")
+          user_3 = User.create(name: "Person Three")
           review_1 = user_1.reviews.create(title: "good book" , description:"amazing", rating: 5)
-          review_2 = user_2.reviews.create(title: "bad book" , description:"lame", rating: 1)
           book_1.reviews << [review_1]
+          review_2 = user_2.reviews.create(title: "bad book" , description:"lame", rating: 1)
           review_3 = user_1.reviews.create(title: "good book" , description:"amazing", rating: 5)
-          review_4 = user_2.reviews.create(title: "not great" , description:"blah", rating: 3)
+          review_4 = user_3.reviews.create(title: "not great" , description:"blah", rating: 3)
           book_2.reviews << [review_2, review_3, review_4]
           review_5 = user_1.reviews.create(title: "good book" , description:"amazing", rating: 4)
           review_6 = user_2.reviews.create(title: "not great" , description:"blah", rating: 1)
@@ -101,11 +102,11 @@ describe "as a user" do
           user_3 = User.create(name: "Person Three")
           user_4 = User.create(name: "Person Four")
           review_1 = user_1.reviews.create(title: "good book" , description:"amazing", rating: 5)
-          review_2 = user_2.reviews.create(title: "bad book" , description:"lame", rating: 1)
           review_7 = user_3.reviews.create(title: "bad book" , description:"lame", rating: 4)
           book_1.reviews << [review_1, review_7]
+          review_2 = user_2.reviews.create(title: "bad book" , description:"lame", rating: 1)
           review_3 = user_1.reviews.create(title: "good book" , description:"amazing", rating: 5)
-          review_4 = user_2.reviews.create(title: "not great" , description:"blah", rating: 3)
+          review_4 = user_4.reviews.create(title: "not great" , description:"blah", rating: 3)
           review_8 = user_3.reviews.create(title: "not great" , description:"blah", rating: 5)
           book_2.reviews << [review_2, review_3, review_4, review_8]
           review_5 = user_3.reviews.create(title: "not great" , description:"blah", rating: 3)

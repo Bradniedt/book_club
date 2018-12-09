@@ -1,4 +1,9 @@
-<%= form_for [@book, @review] do |f| %>
+<%= form_for [@book,@review] do |f| %>
+  <% if @review.errors.any? %>
+    <% @review.errors.full_messages.each do |msg| %>
+      <%= msg %>
+    <% end %>
+  <% end %>
   <%= f.label :title %>
   <%= f.text_field :title %><br/>
   <%= f.label :username %>
