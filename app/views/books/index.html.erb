@@ -24,7 +24,7 @@
   <article class="top_users">
     <h4>Top Users</h4>
     <% @top_users.each do |user|%>
-     <p><%= user.name %> with <%= user.total_reviews %> reviews.</p>
+     <p><%= link_to "#{user.name}", user_path(user) %> with <%= user.total_reviews %> reviews.</p>
     <% end %>
   </article>
 </section>
