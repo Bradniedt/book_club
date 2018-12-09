@@ -32,8 +32,8 @@ describe "As a visitor" do
 
       visit book_path(book_1)
 
-      expect(page).to have_link("Person One", user_path(user_1))
-      expect(page).to have_link("Person Two", user_path(user_2))
+      expect(page).to have_link("Person One")
+      expect(page).to have_link("Person Two")
     end
   end
 end
