@@ -16,7 +16,7 @@ class Book < ApplicationRecord
                 .group("books.id")
                 .order("avg_rating #{order}")
   end
-  
+
   def self.highest_rated_books
     books = self.select("books.*, avg(reviews.rating) AS avg_rating").joins(:reviews).group("books.id").order("avg_rating desc").limit(3)
   end
@@ -57,5 +57,9 @@ class Book < ApplicationRecord
 
   def total_reviews
     reviews.count
+  end
+
+  def top_three_reviews
+    reviews.order(:rating).reverse_order.limit(3)
   end
 end

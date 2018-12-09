@@ -48,8 +48,8 @@ RSpec.describe Book, type: :model do
       review_2 = user_2.reviews.create(title: "bad book" , description:"lame", rating: 1, book: book_1)
       review_3 = user_3.reviews.create(title: "bad book" , description:"lame", rating: 4, book: book_1)
       review_4 = user_4.reviews.create(title: "bad book" , description:"lame", rating: 4, book: book_1)
-
-      expect(book_1.top_three_reviews).to eq([review_1, review_2, review_4])
+      
+      expect(book_1.top_three_reviews).to eq([review_1, review_3, review_4])
     end
   end
 
