@@ -62,4 +62,8 @@ class Book < ApplicationRecord
   def top_three_reviews
     reviews.order(:rating).reverse_order.limit(3)
   end
+
+  def bottom_three_reviews
+    reviews.order(:rating).limit(3)
+  end
 end
