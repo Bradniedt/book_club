@@ -19,6 +19,13 @@
   <% end %>
 </section>
 
+<section class="top_users">
+  <h4>Top Users</h4>
+  <% @top_users.each do |user|%>
+   <p><%= user.name %> with <%= user.total_reviews %> reviews.</p>
+  <% end %>
+</section>
+
 <section class="flex-box">
   <% @books.each do |book| %>
     <article class="book book-box">

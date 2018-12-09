@@ -162,6 +162,8 @@ describe "as a user" do
           review_11 = user_3.reviews.create(title: "not great" , description:"blah", rating: 1)
           book_6.reviews << [review_11]
 
+          visit books_path
+
           within('.top_users') do
             expect(page).to have_content("#{user_3.name} with #{user_3.review_count} reviews.")
             expect(page).to have_content("#{user_2.name} with #{user_2.review_count} reviews.")
