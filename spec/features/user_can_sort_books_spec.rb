@@ -126,7 +126,7 @@ describe "as a user" do
             expect(page).to have_content(book_2.title)
           end
 
-          within('.lowest_rated_books') do 
+          within('.lowest_rated_books') do
             expect(page).to have_content(book_6.title)
             expect(page).to have_content(book_4.title)
             expect(page).to have_content(book_5.title)
@@ -134,6 +134,7 @@ describe "as a user" do
 
         end
       end
+
     end
   end
 end
