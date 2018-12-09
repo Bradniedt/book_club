@@ -53,4 +53,8 @@ class Book < ApplicationRecord
   def avg_rating
     reviews.average(:rating)
   end
+
+  def total_reviews
+    reviews.count
+  end
 end
