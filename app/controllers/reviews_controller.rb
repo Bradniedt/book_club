@@ -9,7 +9,11 @@ class ReviewsController < ApplicationController
     user = User.find_or_create_by(:name => user_name)
     review = user.reviews.create(review_params)
     book.reviews << review
-    redirect_to book_path(book)
+    if review.persisted?
+      redirect_to book_path(book)
+    else
+      render :new
+    end 
   end
 
   private

@@ -43,7 +43,7 @@ describe 'as a visitor' do
         expect{
           click_button 'Create Review'
 
-          expect(page).to have_content("Already exists")
+          expect(page).to have_content("You already reviewed")
         }.not_to change{Review.count}
       end
     end
