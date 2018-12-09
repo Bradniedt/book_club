@@ -73,12 +73,19 @@ a {
  }
 
  .stats-box{
-   min-height: 300px;
+   width: 90%;
+   margin: auto;
+   justify: center;
+   min-height: 175px;
+   border: 1px solid grey;
+   border-radius: 10px;
+   background: rgba(249, 249, 249, 0.2);
  }
 
- .book-box, .lowest_rated_books, .highest_rated_books, .top_users{
+ .book-box {
    flex: 0 1 auto;
    margin: 5px;
+   margin-top: 15px;
    text-align: center;
    padding: auto;
    width: 250px;
@@ -88,6 +95,10 @@ a {
    background: rgba(249, 249, 249, 0.2);
  }
  .lowest_rated_books, .highest_rated_books, .top_users {
+   flex: 0 1 auto;
+   margin: 5px;
+   text-align: center;
+   padding: auto;
    width: 250px;
    height: 160px;
    padding: auto;
@@ -117,6 +128,6 @@ a {
    margin-left: auto;
  }
 
-.sort-link {
-  display: inline;
-}
+ .sort-link {
+   display: inline;
+ }
