@@ -36,14 +36,14 @@ describe 'as a visitor' do
         visit new_book_review_path(book_1)
 
         fill_in 'Title', with: "Would suggest"
-        fill_in 'Username', with: "my name"
+        fill_in 'Username', with: "Maddie"
         fill_in 'Description', with: "Good book"
         fill_in 'Rating', with: 4
 
         expect{
           click_button 'Create Review'
 
-          expect(page).to have_content("You already reviewed")
+          expect(page).to have_content("already reviewed this book")
         }.not_to change{Review.count}
       end
     end
