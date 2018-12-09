@@ -72,6 +72,10 @@ a {
 
  }
 
+ .stats-box{
+   min-height: 300px;
+ }
+
  .book-box, .lowest_rated_books, .highest_rated_books, .top_users{
    flex: 0 1 auto;
    margin: 5px;
@@ -112,3 +116,7 @@ a {
  .form-fields {
    margin-left: auto;
  }
+
+.sort-link {
+  display: inline;
+}
