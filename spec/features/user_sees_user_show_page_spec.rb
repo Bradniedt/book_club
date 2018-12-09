@@ -8,12 +8,10 @@ describe 'as a visitor' do
       book_3 = Book.create!(title: "book_3", pages: 240, year: 2004)
       user_1 = User.create(name: "Peregrin")
       user_2 = User.create(name: "Merriadoc")
-      review_1 = user_1.reviews.create!(title: "good book" , description:"amazing", rating: 5)
-      review_2 = user_2.reviews.create!(title: "bad book" , description:"lame", rating: 1)
-      book_1.reviews << [review_1, review_2]
-      review_3 = user_1.reviews.create!(title: "good book" , description:"amazing", rating: 5)
-      review_4 = user_2.reviews.create!(title: "not great" , description:"blah", rating: 3)
-      book_2.reviews << [review_3, review_4]
+      review_1 = user_1.reviews.create!(title: "good book" , description:"amazing", rating: 5, book: book_1)
+      review_2 = user_2.reviews.create!(title: "bad book" , description:"lame", rating: 1, book: book_1)
+      review_3 = user_1.reviews.create!(title: "good book" , description:"amazing", rating: 5, book: book_2)
+      review_4 = user_2.reviews.create!(title: "not great" , description:"blah", rating: 3, book: book_2)
 
       visit user_path(user_1)
 
