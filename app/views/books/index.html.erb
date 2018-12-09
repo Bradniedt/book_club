@@ -10,14 +10,14 @@
   <article class="highest_rated_books">
     <h4>Highest Rated Books</h4>
     <% @highest_books.each do |book|%>
-     <p class="book_rating"><%= book.title %>: <%= book.avg_rating.round(2) %></p>
+     <p class="book_rating"><%= link_to "#{book.title}", book_path(book) %>: <%= book.avg_rating.round(2) %></p>
     <% end %>
   </article>
 
   <article class="lowest_rated_books">
     <h4>Lowest Rated Books</h4>
     <% @lowest_books.each do |book|%>
-     <p class="book_rating"><%= book.title %>: <%= book.avg_rating.round(2) %></p>
+     <p class="book_rating"><%= link_to "#{book.title}", book_path(book) %>: <%= book.avg_rating.round(2) %></p>
     <% end %>
   </article>
 
