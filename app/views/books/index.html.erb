@@ -10,21 +10,21 @@
   <article class="highest_rated_books">
     <h4>Highest Rated Books</h4>
     <% @highest_books.each do |book|%>
-     <p class="book_rating"><%= book.title %>: <%= book.avg_rating.round(2) %></p>
+     <p class="book_rating"><%= link_to "#{book.title}", book_path(book) %>: <%= book.avg_rating.round(2) %></p>
     <% end %>
   </article>
 
   <article class="lowest_rated_books">
     <h4>Lowest Rated Books</h4>
     <% @lowest_books.each do |book|%>
-     <p class="book_rating"><%= book.title %>: <%= book.avg_rating.round(2) %></p>
+     <p class="book_rating"><%= link_to "#{book.title}", book_path(book) %>: <%= book.avg_rating.round(2) %></p>
     <% end %>
   </article>
 
   <article class="top_users">
     <h4>Top Users</h4>
     <% @top_users.each do |user|%>
-     <p><%= user.name %> with <%= user.total_reviews %> reviews.</p>
+     <p><%= link_to "#{user.name}", user_path(user) %> with <%= user.total_reviews %> reviews.</p>
     <% end %>
   </article>
 </section>
