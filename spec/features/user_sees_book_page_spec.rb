@@ -35,5 +35,29 @@ describe "As a visitor" do
       expect(page).to have_link("Person One")
       expect(page).to have_link("Person Two")
     end
+
+    it "should display the top three reviews" do
+      book_1 = Book.create(title: "book_1", pages: 100, year: 1900)
+      user_1 = User.create(name: "Person One")
+      user_2 = User.create(name: "Person Two")
+      user_3 = User.create(name: "Person Three")
+      user_4 = User.create(name: "Person Four")
+      review_1 = user_1.reviews.create(title: "good book" , description:"amazing", rating: 5, book: book_1)
+      review_2 = user_2.reviews.create(title: "bad book" , description:"lame", rating: 1, book: book_1)
+      review_3 = user_3.reviews.create(title: "bad book" , description:"lame", rating: 4, book: book_1)
+      review_4 = user_4.reviews.create(title: "bad book" , description:"lame", rating: 4, book: book_1)
+
+      within('.top-reviews') do
+        expect(page).to have_content(review_1.title)
+        expect(page).to have_content(review_1.rating)
+        expect(page).to have_content(review_1.user.name)
+        expect(page).to have_content(review_2.title)
+        expect(page).to have_content(review_2.rating)
+        expect(page).to have_content(review_2.user.name)
+        expect(page).to have_content(review_4.title)
+        expect(page).to have_content(review_4.rating)
+        expect(page).to have_content(review_4.user.name)
+      end
+    end
   end
 end
