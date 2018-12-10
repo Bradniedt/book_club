@@ -12,6 +12,11 @@
   <%= link_to "Add Review", new_book_review_path(@book) %>
 </div>
 
+<section class="avg-rating">
+  <h4>Average Rating:</h4>
+  <p><%= @book.avg_rating %>
+</section>
+
 <section class="top-reviews">
   <h4>Top Reviews</h4>
   <% @top_reviews.each do |review| %>

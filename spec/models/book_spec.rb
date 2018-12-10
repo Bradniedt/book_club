@@ -68,7 +68,7 @@ RSpec.describe Book, type: :model do
   end
 
   describe 'class method' do
-    it "avg_rating()" do
+    it "all_avg_rating()" do
       book_1 = Book.create(title: "book_1", pages: 100, year: 2000)
       book_2 = Book.create(title: "book_2", pages: 200, year: 2001)
       book_3 = Book.create(title: "book_3", pages: 240, year: 2004)
@@ -82,8 +82,8 @@ RSpec.describe Book, type: :model do
       review_5 = user_1.reviews.create!(title: "good book" , description:"amazing", rating: 4, book: book_3)
       review_6 = user_2.reviews.create!(title: "not great" , description:"blah", rating: 1, book: book_3)
 
-      expect(Book.avg_rating("asc")).to eq([book_3, book_1, book_2])
-      expect(Book.avg_rating("desc")).to eq([book_2, book_1, book_3])
+      expect(Book.all_avg_rating("asc")).to eq([book_3, book_1, book_2])
+      expect(Book.all_avg_rating("desc")).to eq([book_2, book_1, book_3])
     end
     it 'highest_rated_books' do
      book_1 = Book.create(title: "book_1", pages: 100, year: 2000)
