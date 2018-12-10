@@ -54,11 +54,11 @@ describe 'as a visitor' do
 
       click_on("Delete Author")
 
-      expect(path).to eq(books_path)
+      expect(current_path).to eq(books_path)
 
+      expect(page).to_not have_content(author_1.name)
       expect(page).to_not have_content(book_1.title)
       expect(page).to have_content(book_2.title)
-      expect(page).to_not have_content(author_1.name)
     end
   end
 end
