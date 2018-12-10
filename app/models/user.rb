@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   validates_presence_of :name
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   def review_count
     reviews.count

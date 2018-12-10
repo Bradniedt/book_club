@@ -3,7 +3,7 @@
   <p>Pages: <%= @book.pages %></p>
   <p>Year: <%= @book.year %></p>
   <p>Author(s): <% @authors.each do |author| %>
-    <%= author.name %>
+    <%= link_to "#{author.name}", author_path(author) %>
   <% end %></p>
 </section>
 <br/>
