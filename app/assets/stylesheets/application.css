@@ -140,7 +140,7 @@ a {
    background: rgba(249, 249, 249, 0.2);
  }
 
- .author-header {
+ .author-header, .welcome {
    text-align: center;
  }
 
