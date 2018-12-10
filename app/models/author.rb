@@ -9,4 +9,8 @@ class Author < ApplicationRecord
   def titleizer
     self.name = self.name.titleize
   end
+
+  def top_review
+    books.reviews.order("review.rating desc").limit(1)
+  end
 end

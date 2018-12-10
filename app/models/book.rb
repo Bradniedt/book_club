@@ -51,6 +51,10 @@ class Book < ApplicationRecord
     end
   end
 
+  def top_review
+    
+  end
+
   def avg_rating
     reviews.average(:rating)
   end

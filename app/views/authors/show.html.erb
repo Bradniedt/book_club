@@ -1,6 +1,11 @@
 <h3 class="author-header"><%= @author.name %></h3><br/>
 <section class="flex-box">
-
+  <section class="top_review">
+    <% @top_review.title %>
+    <% @top_review.rating %>
+    <% @top_review.user.name %>
+ </section>
+ 
 <% @author.books.each do |book| %>
   <article class="author-book">
     <%= book.title %>
