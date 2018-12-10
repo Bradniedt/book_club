@@ -20,14 +20,10 @@ RSpec.describe Review, type: :model do
       user_1 = User.create(name: "Peregrin")
 
       review_1 = user_1.reviews.create(title: "good book" , description:"amazing", rating: 5, book: book_1)
-      review_2 = travel_to 2.days.ago do
-        user_1.reviews.create(title: "bad book" , description:"lame", rating: 1, book: book_3)
-      end
+      review_2 = user_1.reviews.create(title: "bad book" , description:"lame", rating: 1, book: book_3, created_at: 2.days.ago)
 
-      review_3 = travel_to 4.days.ago do
-        user_1.reviews.create(title: "good book" , description:"review_3", rating: 5, book: book_2)
-      end
-
+      review_3 = user_1.reviews.create(title: "good book" , description:"review_3", rating: 5, book: book_2, created_at: 4.days.ago)
+    
       expect(Review.sorting("asc")).to eq([review_3, review_2, review_1])
       expect(Review.sorting("desc")).to eq([review_1, review_2, review_3])
     end
