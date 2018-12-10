@@ -51,10 +51,6 @@ class Book < ApplicationRecord
     end
   end
 
-  def top_review
-    
-  end
-
   def avg_rating
     reviews.average(:rating)
   end
@@ -63,8 +59,8 @@ class Book < ApplicationRecord
     reviews.count
   end
 
-  def top_three_reviews
-    reviews.order(:rating).reverse_order.limit(3)
+  def top_reviews(n = 1)
+    reviews.order("reviews.rating desc").limit(n)
   end
 
   def bottom_three_reviews
