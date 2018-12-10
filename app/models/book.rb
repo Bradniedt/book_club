@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
   validates_presence_of :title, :pages, :year
+  validates_uniqueness_of :title 
   before_save :titleizer
 
   has_many :book_authors, dependent: :destroy
@@ -7,7 +8,9 @@ class Book < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   def titleizer
-    self.title = self.title.titleize
+    if self.title
+      self.title = self.title.titleize
+    end
   end
 
   def self.all_avg_rating(order)
