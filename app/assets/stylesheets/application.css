@@ -60,7 +60,9 @@ a {
   grid-row: 2 / 6;
 }
 
- .flex-box, .stats-box, .user-reviews-box, .book-reviews-box {
+ .flex-box, .stats-box,
+ .user-reviews-box, .book-reviews-box,
+ .book-show-stats {
    min-height: 400px;
    display: flex;
    flex-direction: row;
@@ -73,13 +75,15 @@ a {
 
  .book-reviews-box {
    min-height: 275px;
+   flex-direction: column;
  }
 
  .user-reviews-box {
    justify-content: flex-start;
+   flex-direction: column;
  }
 
- .stats-box{
+ .stats-box, .book-show-stats {
    width: 90%;
    margin: auto;
    justify: center;
@@ -87,6 +91,10 @@ a {
    border: 1px solid grey;
    border-radius: 10px;
    background: rgba(249, 249, 249, 0.2);
+ }
+
+ .book-show-stats {
+   margin-top: 10px;
  }
 
  .book-box {
@@ -102,7 +110,10 @@ a {
    background: rgba(249, 249, 249, 0.2);
  }
 
- .lowest_rated_books, .highest_rated_books, .top_users {
+ .lowest_rated_books,
+ .highest_rated_books,
+ .top_users, .top-reviews,
+ .bottom-reviews, .avg-rating {
    flex: 0 1 auto;
    margin: 5px;
    text-align: center;
@@ -110,6 +121,11 @@ a {
    width: 250px;
    height: 160px;
    padding: auto;
+ }
+
+ .top-reviews,
+ .bottom-reviews, .avg-rating {
+   width: 350px;
  }
 
  .author-book {
@@ -128,7 +144,7 @@ a {
    text-align: center;
  }
 
- .review-box {
+ .review-box, .review-sort-links {
    flex: 0 1 auto;
    margin: 10px;
    margin-top: 15px;
@@ -141,6 +157,11 @@ a {
    border-radius: 10px;
    background: rgba(249, 249, 249, 0.2);
  }
+
+  .review-sort-links {
+    min-height: 100px;
+    height: 100px;
+  }
 
  .book-show-info {
    margin: auto;
