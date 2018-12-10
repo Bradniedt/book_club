@@ -40,5 +40,25 @@ describe 'as a visitor' do
 
       expect(page).to have_link("Delete Author")
     end
+    it "can delete an author when user clicks delete author" do
+      book_1 = Book.create(title: "book_1", pages: 100, year: 1900)
+      book_2 = Book.create(title: "book_2", pages: 200, year: 2000)
+      user_1 = User.create(name: "Person One")
+      user_2 = User.create(name: "Person Two")
+
+      review_1 = user_1.reviews.create(title: "review_1", description: "ehfladhflad", rating: 1, book: book_1)
+      review_2 = user_2.reviews.create(title: "review_2", description: "ehfladhflad", rating: 5, book: book_1)
+      author_1 = book_1.authors.create(name: "Author One")
+
+      visit author_path(author_1)
+
+      click_on("Delete Author")
+
+      expect(path).to eq(books_path)
+
+      expect(page).to_not have_content(book_1.title)
+      expect(page).to have_content(book_2.title)
+      expect(page).to_not have_content(author_1.name)
+    end
   end
 end
