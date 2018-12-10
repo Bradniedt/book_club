@@ -9,4 +9,5 @@ class Author < ApplicationRecord
   def titleizer
     self.name = self.name.titleize
   end
+
 end
