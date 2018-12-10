@@ -105,5 +105,15 @@ describe "As a visitor" do
         expect(page).to have_content(book_1.avg_rating)
       end
     end
+    it "should have a delete book link" do
+      book_1 = Book.create(title: "book_1", pages: 100, year: 1900)
+      author_1 = book_1.authors.create(name: "Bob")
+      user_1 = User.create(name: "Person One")
+      review_1 = user_1.reviews.create(title: "good book" , description:"amazing", rating: 1, book: book_1)
+
+      visit book_path(book_1)
+
+      expect(page).to have_link("Delete this Book")
+    end
   end
 end
