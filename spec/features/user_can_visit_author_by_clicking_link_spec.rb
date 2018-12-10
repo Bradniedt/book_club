@@ -32,5 +32,13 @@ describe 'as a visitor' do
        expect(page).to have_content(review_2.user.name)
       end
     end
+    it "should show a delete author button" do
+      book_1 = Book.create(title: "book_1", pages: 100, year: 1900)
+      author_1 = book_1.authors.create(name: "Author One")
+
+      visit author_path(author_1)
+
+      expect(page).to have_link("Delete Author")
+    end
   end
 end
