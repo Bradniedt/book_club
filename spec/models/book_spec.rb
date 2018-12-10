@@ -37,10 +37,38 @@ RSpec.describe Book, type: :model do
 
       expect(book_1.total_reviews).to eq(2)
     end
+
+    it 'top_three_reviews' do
+      book_1 = Book.create(title: "book_1", pages: 100, year: 1900)
+      user_1 = User.create(name: "Person One")
+      user_2 = User.create(name: "Person Two")
+      user_3 = User.create(name: "Person Three")
+      user_4 = User.create(name: "Person Four")
+      review_1 = user_1.reviews.create(title: "good book" , description:"amazing", rating: 5, book: book_1)
+      review_2 = user_2.reviews.create(title: "bad book" , description:"lame", rating: 1, book: book_1)
+      review_3 = user_3.reviews.create(title: "bad book" , description:"lame", rating: 4, book: book_1)
+      review_4 = user_4.reviews.create(title: "bad book" , description:"lame", rating: 4, book: book_1)
+
+      expect(book_1.top_three_reviews).to eq([review_1, review_3, review_4])
+    end
+
+    it 'bottom_three_reviews' do
+      book_1 = Book.create(title: "book_1", pages: 100, year: 1900)
+      user_1 = User.create(name: "Person One")
+      user_2 = User.create(name: "Person Two")
+      user_3 = User.create(name: "Person Three")
+      user_4 = User.create(name: "Person Four")
+      review_1 = user_1.reviews.create(title: "good book" , description:"amazing", rating: 1, book: book_1)
+      review_2 = user_2.reviews.create(title: "bad book" , description:"lame", rating: 2, book: book_1)
+      review_3 = user_3.reviews.create(title: "bad book" , description:"lame", rating: 4, book: book_1)
+      review_4 = user_4.reviews.create(title: "bad book" , description:"lame", rating: 3, book: book_1)
+
+      expect(book_1.bottom_three_reviews).to eq([review_1, review_2, review_4])
+    end
   end
 
   describe 'class method' do
-    it "avg_rating()" do
+    it "all_avg_rating()" do
       book_1 = Book.create(title: "book_1", pages: 100, year: 2000)
       book_2 = Book.create(title: "book_2", pages: 200, year: 2001)
       book_3 = Book.create(title: "book_3", pages: 240, year: 2004)
@@ -54,8 +82,8 @@ RSpec.describe Book, type: :model do
       review_5 = user_1.reviews.create!(title: "good book" , description:"amazing", rating: 4, book: book_3)
       review_6 = user_2.reviews.create!(title: "not great" , description:"blah", rating: 1, book: book_3)
 
-      expect(Book.avg_rating("asc")).to eq([book_3, book_1, book_2])
-      expect(Book.avg_rating("desc")).to eq([book_2, book_1, book_3])
+      expect(Book.all_avg_rating("asc")).to eq([book_3, book_1, book_2])
+      expect(Book.all_avg_rating("desc")).to eq([book_2, book_1, book_3])
     end
     it 'highest_rated_books' do
      book_1 = Book.create(title: "book_1", pages: 100, year: 2000)

@@ -10,13 +10,13 @@ class Book < ApplicationRecord
     self.title = self.title.titleize
   end
 
-  def self.avg_rating(order)
+  def self.all_avg_rating(order)
     books = self.select("books.*, avg(reviews.rating) AS avg_rating")
                 .joins(:reviews)
                 .group("books.id")
                 .order("avg_rating #{order}")
   end
-  
+
   def self.highest_rated_books
     books = self.select("books.*, avg(reviews.rating) AS avg_rating").joins(:reviews).group("books.id").order("avg_rating desc").limit(3)
   end
@@ -35,9 +35,9 @@ class Book < ApplicationRecord
 
   def self.sort(params)
     if params[:sort] == "asc_rating"
-      avg_rating("asc")
+      all_avg_rating("asc")
     elsif params[:sort] == "desc_rating"
-      avg_rating("desc")
+      all_avg_rating("desc")
     elsif params[:sort] == "asc_pages"
       number_of_pages("asc")
     elsif params[:sort] == "desc_pages"
@@ -57,5 +57,13 @@ class Book < ApplicationRecord
 
   def total_reviews
     reviews.count
+  end
+
+  def top_three_reviews
+    reviews.order(:rating).reverse_order.limit(3)
+  end
+
+  def bottom_three_reviews
+    reviews.order(:rating).limit(3)
   end
 end

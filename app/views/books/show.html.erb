@@ -11,6 +11,34 @@
 <div class="add-review">
   <%= link_to "Add Review", new_book_review_path(@book) %>
 </div>
+
+<section class="book-show-stats">
+  <article class="avg-rating">
+    <h4>Average Rating:</h4>
+    <p><%= @book.avg_rating %>
+  </article>
+
+  <article class="top-reviews">
+    <h4>Top Reviews</h4>
+    <% @top_reviews.each do |review| %>
+      User: <%= review.user.name %>
+      Title: <%= review.title %>,
+      Rating: <%= review.rating %>,
+      <br/>
+    <% end %>
+  </article>
+
+  <article class="bottom-reviews">
+    <h4>Worst Reviews</h4>
+    <% @bottom_reviews.each do |review| %>
+      User: <%= review.user.name %>
+      Title: <%= review.title %>,
+      Rating: <%= review.rating %>,
+      <br/>
+    <% end %>
+  </article>
+</section>
+
 <section class="book-reviews-box">
     <% @book.reviews.each do |review|%>
       <article class="review-box">
