@@ -3,15 +3,16 @@
 <h4 class="user-review-header">My reviews:</h4>
 <section class="user-reviews-box">
   <article class="review-sort-links">
-    <p><%= link_to "Newest First", user_path(sort: "desc") %></p>   
+    <p><%= link_to "Newest First", user_path(sort: "desc") %></p>
     <p><%= link_to "Oldest First", user_path(sort: "asc") %></p>
   </article>
     <% @reviews.each do |review| %>
-    <article class="review-box">
+    <article class="review-box" id="review_<%="#{review.id}" %>">
       <p>Title: <%= review.title %></p>
       <p>Book: <%= link_to "#{review.book.title}", book_path(review.book) %></p>
       <p>Rating: <%= review.rating %></p>
       <p><%= review.description %></p>
+      <%= link_to "Delete Review", book_review_path(review.book, review), method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %>
       </article>
     <% end %>
 </section>

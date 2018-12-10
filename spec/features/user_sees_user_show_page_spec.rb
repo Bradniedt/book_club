@@ -54,5 +54,27 @@ describe 'as a visitor' do
       expect(all('.review-box')[1]).to have_content(review_2.title)
       expect(all('.review-box')[2]).to have_content(review_1.title)
     end
+    it 'should show a delete review link' do
+      book_1 = Book.create(title: "book_1", pages: 100, year: 2000)
+      book_2 = Book.create(title: "book_2", pages: 200, year: 2001)
+      book_3 = Book.create(title: "book_3", pages: 240, year: 2004)
+      user_1 = User.create(name: "Peregrin")
+
+      review_1 = user_1.reviews.create!(title: "good book" , description:"amazing", rating: 5, book: book_1)
+      review_3 = user_1.reviews.create!(title: "bad book" , description:"blah", rating: 1, book: book_2)
+
+      visit user_path(user_1)
+
+      expect(page).to have_link("Delete Review")
+
+      within("#review_#{review_1.id}") do
+        click_on("Delete Review")
+      end
+
+      expect(page).to_not have_content(review_1.title)
+      expect(page).to_not have_content(review_1.description)
+      expect(page).to_not have_content(review_1.rating)
+      expect(page).to have_content(review_3.title)
+    end
   end
 end
