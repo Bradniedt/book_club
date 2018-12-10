@@ -61,7 +61,7 @@ describe 'as a visitor' do
       user_1 = User.create(name: "Peregrin")
 
       review_1 = user_1.reviews.create!(title: "good book" , description:"amazing", rating: 5, book: book_1)
-      review_3 = user_1.reviews.create!(title: "good book" , description:"amazing", rating: 5, book: book_2)
+      review_3 = user_1.reviews.create!(title: "bad book" , description:"blah", rating: 1, book: book_2)
 
       visit user_path(user_1)
 
