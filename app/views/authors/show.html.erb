@@ -6,7 +6,7 @@
 
   <% @author.books.each do |book| %>
     <article class="author-book">
-      <p><%= book.title %></p>
+      <p><%= link_to "#{book.title}", book_path(book) %></p>
       <p>Pages: <%= book.pages %></p>
       <p>Year: <%= book.year %></p>
       <section class="top_review">
