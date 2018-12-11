@@ -11,7 +11,7 @@ describe 'as a visitor' do
         fill_in 'Title', with: "Would suggest"
         fill_in 'Username', with: "my name"
         fill_in 'Description', with: "Good book"
-        fill_in 'Rating', with: 4
+        select 4, from: "Rating"
 
         click_button 'Create Review'
 
@@ -38,7 +38,7 @@ describe 'as a visitor' do
         fill_in 'Title', with: "Would suggest"
         fill_in 'Username', with: "Maddie"
         fill_in 'Description', with: "Good book"
-        fill_in 'Rating', with: 4
+        select 4, from: "Rating"
 
         expect{
           click_button 'Create Review'
