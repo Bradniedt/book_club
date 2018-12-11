@@ -19,15 +19,17 @@ book_3 = tolkein.books.create(title: "The Two Towers", pages: 352, year: 1937 )
 book_4 = tolkein.books.create(title: "The Return of the King", pages: 416, year: 1954 )
 
 sanderson = Author.create(name: "Brandon Sanderson")
-book_1 = sanderson.books.create(title: "The Way of Kings", pages: 1057, year: 2009 )
-book_2 = sanderson.books.create(title: "Oathbringer", pages: 1200, year: 2012 )
-book_3 = sanderson.books.create(title: "Words of Radiance", pages: 1057, year: 2013 )
+book_5 = sanderson.books.create(title: "The Way of Kings", pages: 1057, year: 2009 )
+book_6 = sanderson.books.create(title: "Oathbringer", pages: 1200, year: 2012 )
+book_7 = sanderson.books.create(title: "Words of Radiance", pages: 1057, year: 2013 )
 jordan = Author.create(name: "Rober Jordan ")
-book_4 = Book.create(title: "Towes of Midnight", pages: 1057, year: 2009, authors: [jordan, sanderson])
+book_8 = Book.create(title: "Towes of Midnight", pages: 1057, year: 2009, authors: [jordan, sanderson])
 
 user_1 = User.create(name: "Han Solo")
 user_2 = User.create(name: "Leia Skywalker")
 user_3 = User.create(name: "Luke Skywalker")
+user_4 = User.create(name: "Frodo Beggins")
+user_5 = User.create(name: "Samewise Gamgee")
 
 review_1 = user_1.reviews.create!(title: "Great Story" , description:"I loved the elves!", rating: 5)
 review_2 = user_2.reviews.create!(title: "Sub-par" , description:"I thought that bilbo should've stayed home.", rating: 1)
@@ -42,6 +44,11 @@ review_6 = user_1.reviews.create!(title: "BS" , description:"Aragorn's dad shoul
 review_7 = user_2.reviews.create!(title: "Gollum Love" , description:"I don't like that Sam keeps hating on Gollum every chance he gets. WTF", rating: 3)
 book_3.reviews << [review_6, review_7]
 
-review_8 = user_1.reviews.create!(title: "Good ending" , description:"So happy that the good guys win. FU great eye.", rating: 4)
-review_9 = user_3.reviews.create!(title: "Am I missing something?" , description:"This could've ended before it all started", rating: 1)
-book_4.reviews << [review_8, review_9]
+review_8 = user_1.reviews.create!(title: "Mindblowing" , description:"Brandon Sanderson amazing as always", rating: 5)
+review_9 = user_3.reviews.create!(title: "Bad book" , description:"To complex and consistent for me", rating: 1)
+book_5.reviews << [review_8, review_9]
+
+review_10 = user_1.reviews.create!(title: "Questioning Sanderson" , description:"Did not appreciate the addition of Brandon in this book", rating: 2)
+review_11 = user_3.reviews.create!(title: "Meh" , description:"Why is this guy acting like this?", rating: 3)
+review_12 = user_5.reviews.create!(title: "Love it!" , description:"So engaging, could not stop reading", rating: 5)
+book_8.reviews << [review_10, review_11, review_12]
