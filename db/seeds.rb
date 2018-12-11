@@ -31,24 +31,24 @@ user_3 = User.create(name: "Luke Skywalker")
 user_4 = User.create(name: "Frodo Beggins")
 user_5 = User.create(name: "Samewise Gamgee")
 
-review_1 = user_1.reviews.create!(title: "Great Story" , description:"I loved the elves!", rating: 5)
-review_2 = user_2.reviews.create!(title: "Sub-par" , description:"I thought that bilbo should've stayed home.", rating: 1)
-review_3 = user_3.reviews.create!(title: "Too Good" , description:"Nothing IRL can be as good as this story, nihlism.", rating: 1)
+review_1 = user_1.reviews.create(title: "Great Story" , description:"I loved the elves!", rating: 5)
+review_2 = user_2.reviews.create(title: "Sub-par" , description:"I thought that bilbo should've stayed home.", rating: 1)
+review_3 = user_3.reviews.create(title: "Too Good" , description:"Nothing IRL can be as good as this story, nihlism.", rating: 1)
 book_1.reviews << [review_1, review_2, review_3]
 
-review_4 = user_1.reviews.create!(title: "Top-notch" , description:"It was a great struggle - can't wait to find out what happens next!", rating: 5)
-review_5 = user_2.reviews.create!(title: "Underwhelmed" , description:"Where have all of the good times gone? Middle earth is lost.", rating: 3)
+review_4 = user_1.reviews.create(title: "Top-notch" , description:"It was a great struggle - can't wait to find out what happens next!", rating: 5)
+review_5 = user_2.reviews.create(title: "Underwhelmed" , description:"Where have all of the good times gone? Middle earth is lost.", rating: 3)
 book_2.reviews << [review_4, review_5]
 
-review_6 = user_1.reviews.create!(title: "BS" , description:"Aragorn's dad should've destroyed the ring when he had the chance. This is BS.", rating: 3)
-review_7 = user_2.reviews.create!(title: "Gollum Love" , description:"I don't like that Sam keeps hating on Gollum every chance he gets. WTF", rating: 3)
+review_6 = user_1.reviews.create(title: "BS" , description:"Aragorn's dad should've destroyed the ring when he had the chance. This is BS.", rating: 3)
+review_7 = user_2.reviews.create(title: "Gollum Love" , description:"I don't like that Sam keeps hating on Gollum every chance he gets. WTF", rating: 3)
 book_3.reviews << [review_6, review_7]
 
-review_8 = user_1.reviews.create!(title: "Mindblowing" , description:"Brandon Sanderson amazing as always", rating: 5)
-review_9 = user_3.reviews.create!(title: "Bad book" , description:"To complex and consistent for me", rating: 1)
+review_8 = user_1.reviews.create(title: "Mindblowing" , description:"Brandon Sanderson amazing as always", rating: 5)
+review_9 = user_3.reviews.create(title: "Bad book" , description:"To complex and consistent for me", rating: 1)
 book_5.reviews << [review_8, review_9]
 
-review_10 = user_1.reviews.create!(title: "Questioning Sanderson" , description:"Did not appreciate the addition of Brandon in this book", rating: 2)
-review_11 = user_3.reviews.create!(title: "Meh" , description:"Why is this guy acting like this?", rating: 3)
-review_12 = user_5.reviews.create!(title: "Love it!" , description:"So engaging, could not stop reading", rating: 5)
+review_10 = user_1.reviews.create(title: "Questioning Sanderson" , description:"Did not appreciate the addition of Brandon in this book", rating: 2)
+review_11 = user_3.reviews.create(title: "Meh" , description:"Why is this guy acting like this?", rating: 3)
+review_12 = user_5.reviews.create(title: "Love it!" , description:"So engaging, could not stop reading", rating: 5)
 book_8.reviews << [review_10, review_11, review_12]
