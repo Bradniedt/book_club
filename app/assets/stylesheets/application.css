@@ -50,12 +50,7 @@ a {
   margin: 10px;
 }
 
-.dropdown {
-  grid-column: 5 / 6;
-  grid-row: 1 / 2;
-  margin: 10px;
-  padding-left: 10px;
-}
+
 .new-book {
   grid-column: 3 / 5;
   grid-row: 1 / 2;
@@ -255,11 +250,6 @@ a {
 
   .dropdown:hover .dropdown-content {
     display: block;
-  }
-
-  .dropbtn:hover {
-    max-width: 100px;
-    max-height: 50px;
   }
 
   .new-book:hover {
