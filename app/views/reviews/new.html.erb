@@ -1,16 +1,20 @@
-<%= form_for [@book,@review] do |f| %>
-  <% if @review.errors.any? %>
-    <% @review.errors.full_messages.each do |msg| %>
-      <%= msg %>
+<div class="view">
+
+  <%= form_for [@book,@review] do |f| %>
+    <% if @review.errors.any? %>
+      <% @review.errors.full_messages.each do |msg| %>
+        <%= msg %>
+      <% end %>
     <% end %>
+    <p class="form-lines"><%= f.label :title %></p>
+    <div class="form-lines"><%= f.text_field :title %></div><br/>
+    <p class="form-lines"><%= f.label :username %></p>
+    <div class="form-lines"><%= f.text_field :username, :value => "" %></div><br/>
+    <p class="form-lines"><%= f.label :rating %></p>
+    <div class="form-lines"><%= f.select :rating, [[1,1], [2,2], [3,3], [4,4], [5,5]] %></div><br/>
+    <p class="form-lines"><%= f.label :description %></p>
+    <div class="form-lines"><%= f.text_field :description %></div><br/>
+    <p class="form-lines"><%= f.submit %></p><br/>
   <% end %>
-  <%= f.label :title %>
-  <%= f.text_field :title %><br/>
-  <%= f.label :username %>
-  <%= f.text_field :username, :value => "" %><br/>
-  <%= f.label :rating %>
-  <%= f.select :rating, [[1,1], [2,2], [3,3], [4,4], [5,5]] %><br/>
-  <%= f.label :description %>
-  <%= f.text_field :description %><br/>
-  <%= f.submit %><br/>
-<% end %>
+
+</div>
