@@ -1,11 +1,15 @@
-<%= form_for @book do |f| %>
-  <p class="form-lines"><%= f.label :title %>
-  <div class="form-fields"><%= f.text_field :title %></p></div>
-  <p class="form-lines"><%= f.label :pages %>
-  <div class="form-fields"><%= f.number_field :pages %></p></div>
-  <p class="form-lines"><%= f.label :year %>
-  <div class="form-fields"><%= f.number_field :year %></p></div>
-  <p class="form-lines"><%= f.label :authors %>
-  <div class="form-fields"><%= f.text_field :authors, :value => ""  %></p></div>
-  <p class="form-lines"><%= f.submit %></p>
-<% end %>
+<div class="view">
+
+  <%= form_for @book do |f| %>
+    <p class="form-lines"><%= f.label :title %>
+    <div class="form-fields"><%= f.text_field :title %></p></div>
+    <p class="form-lines"><%= f.label :pages %>
+    <div class="form-fields"><%= f.number_field :pages %></p></div>
+    <p class="form-lines"><%= f.label :year %>
+    <div class="form-fields"><%= f.number_field :year %></p></div>
+    <p class="form-lines"><%= f.label :authors %>
+    <div class="form-fields"><%= f.text_field :authors, :value => ""  %></p></div>
+    <p class="form-lines"><%= f.submit %></p>
+  <% end %>
+
+</div>
