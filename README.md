@@ -1,24 +1,16 @@
 # README
+[Heroku link](https://desolate-brushlands-86664.herokuapp.com/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[DTR link] (https://gist.github.com/Bradniedt/7438c12542afce5780c546a065e96ee2)
 
-Things you may want to cover:
-
-* Ruby version
+* Ruby 2.4.5
 
 * System dependencies
 
 * Configuration
 
-* Database creation
+* PostgreSQL
 
-* Database initialization
+* Run rake db:{drop,create,migrate,seed}
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* To run the test suite, run Rspec from the terminal

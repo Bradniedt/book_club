@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
   validates_presence_of :title, :pages, :year
-  validates_uniqueness_of :title 
+  validates_uniqueness_of :title
   before_save :titleizer
 
   has_many :book_authors, dependent: :destroy
@@ -14,8 +14,8 @@ class Book < ApplicationRecord
   end
 
   def self.all_avg_rating(order)
-    books = self.select("books.*, avg(reviews.rating) AS avg_rating")
-                .joins(:reviews)
+    books = self.select("books.*, coalesce(avg(reviews.rating), 0) AS avg_rating")
+                .left_outer_joins(:reviews)
                 .group("books.id")
                 .order("avg_rating #{order}")
   end
@@ -33,7 +33,7 @@ class Book < ApplicationRecord
   end
 
   def self.number_of_reviews(order)
-    self.select('books.*, reviews.count AS count').joins(:reviews).group(:id).order("count #{order}")
+    self.select("books.*, coalesce(count(reviews.id),0) AS count").left_outer_joins(:reviews).group(:id).order("count #{order}")
   end
 
   def self.sort(params)
