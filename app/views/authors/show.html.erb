@@ -12,7 +12,7 @@
       <section class="top_review">
         Top Review:
         <% if book.top_reviews.first != nil %>
-          <p><%= link_to "#{book.top_reviews.first.user.name}", user_path(book.top_reviews.first.user.name) %> ||
+          <p><%= link_to "#{book.top_reviews.first.user.name}", user_path(book.top_reviews.first.user) %> ||
           <%= book.top_reviews.first.title %> ||
           Rating: <%= book.top_reviews.first.rating %></p>
         <% end %>
