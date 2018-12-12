@@ -19,7 +19,9 @@
   <section class="book-show-stats">
     <article class="avg-rating">
       <h4>Average Rating:</h4>
-      <p><%= @book.avg_rating %>
+      <% if @book.avg_rating != nil  %>
+        <p><%= @book.avg_rating.round(2) %></p>
+      <% end %>
     </article>
 
     <article class="top-reviews">
