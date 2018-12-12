@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
   validates_presence_of :title, :pages, :year
-  validates_uniqueness_of :title 
+  validates_uniqueness_of :title
   before_save :titleizer
 
   has_many :book_authors, dependent: :destroy
@@ -33,7 +33,7 @@ class Book < ApplicationRecord
   end
 
   def self.number_of_reviews(order)
-    self.select('books.*, reviews.count AS count').joins(:reviews).group(:id).order("count #{order}")
+    self.select("books.*, coalesce(count(reviews.id),0) AS count").joins(:reviews).group(:id).order("count #{order}")
   end
 
   def self.sort(params)

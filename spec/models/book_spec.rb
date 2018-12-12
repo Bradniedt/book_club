@@ -165,6 +165,7 @@ RSpec.describe Book, type: :model do
      book_1 = Book.create!(title: "book_1", pages: 100, year: 2000)
      book_2 = Book.create!(title: "book_2", pages: 200, year: 2001)
      book_3 = Book.create!(title: "book_3", pages: 240, year: 2004)
+     book_4 = Book.create!(title: "book_4", pages: 240, year: 2005)
      user_1 = User.create(name: "Peregrin")
      user_2 = User.create(name: "Merriadoc")
      user_3 = User.create(name: "Frodo")
@@ -175,8 +176,8 @@ RSpec.describe Book, type: :model do
      review_5 = user_1.reviews.create!(title: "good book" , description:"amazing", rating: 4, book: book_3)
      review_6 = user_2.reviews.create!(title: "not great" , description:"blah", rating: 1, book: book_3)
 
-     expect(Book.number_of_reviews("asc")).to eq([book_1, book_2, book_3])
-     expect(Book.number_of_reviews("desc")).to eq([book_3, book_2, book_1])
+     expect(Book.number_of_reviews("asc")).to eq([book_1, book_2, book_3, book_4])
+     expect(Book.number_of_reviews("desc")).to eq([book_4, book_3, book_2, book_1])
     end
   end
 end
